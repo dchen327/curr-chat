@@ -14,12 +14,14 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-firebase.initializeApp(firebaseConfig);
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 function App() {
   return (
     <>
-      <section className="hero is-large">
+      <section className="hero is-fullheight">
         <div className="hero-head">
           <div className="hero is-info is-bold">
             <div className="hero-body">
@@ -38,16 +40,16 @@ function App() {
         <div className="hero-foot">
           <MessageInput />
         </div>
-      </section>
 
-      <footer className="footer">
-        <div className="content has-text-centered">
-          <p>
-            <strong>CurrChat</strong> by{" "}
-            <a href="https://davidxchen.com">David Chen</a>
-          </p>
-        </div>
-      </footer>
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              <strong>CurrChat</strong> by{" "}
+              <a href="https://davidxchen.com">David Chen</a>
+            </p>
+          </div>
+        </footer>
+      </section>
     </>
   );
 }
