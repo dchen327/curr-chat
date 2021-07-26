@@ -1,12 +1,13 @@
 import React from "react";
 import "bulma/css/bulma.min.css";
 import firebase from "firebase/app";
-import ls from "local-storage";
+import ls, { get, set, clear } from "local-storage";
 
 import ChatMessages from "./ChatMessages";
 import MessageInput from "./MessageInput";
 
 function App() {
+  // init firebase
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -21,6 +22,10 @@ function App() {
     // don't reinitialize Firebase
     firebase.initializeApp(firebaseConfig);
   }
+
+  const randID = 1 + Math.floor(Math.random() * 10000);
+  const username = get<string>("username") || `Guest ${randID}`;
+  set<string>("username", username);
 
   return (
     <>
@@ -37,7 +42,7 @@ function App() {
                 </div>
                 <div className="column">
                   <label className="text">Your Name:</label>
-                  <input className="input" placeholder="Anonymous"></input>
+                  <input className="input" placeholder={username} />
                 </div>
               </div>
             </div>
