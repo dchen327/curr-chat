@@ -23,7 +23,7 @@ function App() {
     firebase.initializeApp(firebaseConfig);
   }
 
-  const randID = 1 + Math.floor(Math.random() * 10000);
+  const randID = 1000 + Math.floor(Math.random() * 9000); // random 4 digit ID
   const username = get<string>("username") || `Guest ${randID}`;
   set<string>("username", username);
 
