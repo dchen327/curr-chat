@@ -15,6 +15,7 @@ const firebaseConfig = {
 };
 
 if (firebase.apps.length === 0) {
+  // don't reinitialize Firebase
   firebase.initializeApp(firebaseConfig);
 }
 
@@ -45,7 +46,8 @@ function App() {
           <div className="content has-text-centered">
             <p>
               <strong>CurrChat</strong> by{" "}
-              <a href="https://davidxchen.com">David Chen</a>
+              <a href="https://davidxchen.com">David Chen</a>. Built with React,
+              Bulma, and Firebase.
             </p>
           </div>
         </footer>
