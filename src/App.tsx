@@ -1,5 +1,6 @@
 import React from "react";
 import "bulma/css/bulma.min.css";
+import ChatRoom from "./ChatRoom";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       </section>
 
       <div className="container">
-        <button className="button is-primary">Hello World</button>
+        <ChatRoom />
       </div>
     </>
   );
