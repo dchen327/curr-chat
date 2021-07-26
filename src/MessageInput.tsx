@@ -5,6 +5,7 @@ function MessageInput() {
 
   const sendMessage = async (e: React.SyntheticEvent) => {
     e.preventDefault();
+    // TODO: send to db with timestamp + name of sender + message
     console.log(formValue);
     setFormValue("");
   };
