@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-function ChatRoom() {
+function MessageInput() {
   const [formValue, setFormValue] = useState("");
 
+  const sendMessage = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    console.log(formValue);
+    setFormValue("");
+  };
+
   return (
-    <>
-      <form onSubmit={() => console.log(formValue)}>
+    <div className="container">
+      <form onSubmit={sendMessage}>
         <div className="field has-addons">
           <div className="control is-expanded">
             <input
@@ -16,14 +22,18 @@ function ChatRoom() {
             />
           </div>
           <div className="control">
-            <button type="submit" className="button is-primary">
+            <button
+              type="submit"
+              disabled={!formValue}
+              className="button is-primary"
+            >
               Send
             </button>
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 
-export default ChatRoom;
+export default MessageInput;
