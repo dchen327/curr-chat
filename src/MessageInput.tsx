@@ -1,12 +1,18 @@
 import { useState } from "react";
+import firebase from "firebase/app";
+import "firebase/database";
 
 function MessageInput() {
   const [formValue, setFormValue] = useState("");
+  const database = firebase.database();
 
   const sendMessage = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     // TODO: send to db with timestamp + name of sender + message
-    console.log(formValue);
+    database.ref("chats").push({
+      name: "Thomas",
+      message: formValue,
+    });
     setFormValue("");
   };
 
