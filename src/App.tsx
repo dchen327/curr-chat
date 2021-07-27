@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { get, set } from "local-storage";
 
 import "bulma/css/bulma.min.css";
@@ -19,6 +19,8 @@ function App() {
     set<string>("username", username);
   };
 
+  const dummy = useRef();
+
   return (
     <>
       <section className="hero is-fullheight">
@@ -33,7 +35,7 @@ function App() {
           <ChatMessages username={username} />
         </div>
         <div className="hero-foot">
-          <MessageInput username={username} />
+          <MessageInput username={username} dummy={dummy} />
         </div>
 
         <footer className="footer">

@@ -2,7 +2,7 @@ import { useState } from "react";
 import firebase from "firebase/app";
 import "firebase/database";
 
-function MessageInput({ username }: any) {
+function MessageInput({ username, dummy }: any) {
   const [formValue, setFormValue] = useState("");
   const database = firebase.database();
 
@@ -14,10 +14,12 @@ function MessageInput({ username }: any) {
       message: formValue,
     });
     setFormValue("");
+    dummy.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="container">
+      <span ref={dummy}></span>
       <form onSubmit={sendMessage}>
         <div className="field has-addons">
           <div className="control is-expanded">
