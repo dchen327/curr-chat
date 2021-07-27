@@ -14,6 +14,7 @@ function ChatMessages({ username }: any) {
         messages.map((msg, i) => (
           <ChatMessage
             key={i}
+            name={msg.name}
             message={msg.message}
             isOwnMessage={msg.name === username}
           />

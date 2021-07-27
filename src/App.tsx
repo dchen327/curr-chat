@@ -17,7 +17,6 @@ function App() {
 
   const storeUsername = (e: React.SyntheticEvent) => {
     set<string>("username", username);
-    console.log("username changed: ", username);
   };
 
   return (
