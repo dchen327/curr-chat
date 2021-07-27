@@ -32,7 +32,6 @@ function Header({ username, setUsername, storeUsername }: any) {
                   <div className="control is-expanded">
                     <input
                       className="input"
-                      // value={username}
                       onChange={usernameInputChanged}
                       placeholder={username}
                     />

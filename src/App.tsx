@@ -31,11 +31,8 @@ function App() {
             storeUsername={storeUsername}
           />
         </div>
-        <div
-          className="hero-body"
-          style={{ height: "100vh", overflow: "auto" }}
-        >
-          <ChatMessages username={username} />
+        <div className="hero-body" style={{ height: "50vh", overflow: "auto" }}>
+          <ChatMessages username={username} dummy={dummy} />
         </div>
         <div className="hero-foot">
           <MessageInput username={username} dummy={dummy} />

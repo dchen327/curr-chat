@@ -2,9 +2,12 @@ import { useList } from "react-firebase-hooks/database";
 import firebase from "firebase/app";
 
 import ChatMessage from "./ChatMessage";
+import { useRef } from "react";
 
-function ChatMessages({ username }: any) {
+function ChatMessages({ username, dummy }: any) {
   const [snapshots, loading, error] = useList(firebase.database().ref("chats"));
+
+  dummy = useRef();
 
   return (
     <div className="container px-3">
@@ -19,6 +22,7 @@ function ChatMessages({ username }: any) {
             isOwnMessage={v.val().name === username}
           />
         ))}
+      <span ref={dummy}></span>
     </div>
   );
 }
