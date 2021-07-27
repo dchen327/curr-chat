@@ -2,7 +2,7 @@ import { useState } from "react";
 import firebase from "firebase/app";
 import "firebase/database";
 
-function MessageInput() {
+function MessageInput({ username }: any) {
   const [formValue, setFormValue] = useState("");
   const database = firebase.database();
 
@@ -10,7 +10,7 @@ function MessageInput() {
     e.preventDefault();
     // TODO: send to db with timestamp + name of sender + message
     database.ref("chats").push({
-      name: "Thomas",
+      name: username,
       message: formValue,
     });
     setFormValue("");

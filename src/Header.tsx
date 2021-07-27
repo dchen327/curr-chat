@@ -1,20 +1,4 @@
-import { get, set } from "local-storage";
-import { useState } from "react";
-
-function Header() {
-  const randID = 1000 + Math.floor(Math.random() * 9000); // random 4 digit ID
-
-  // grab username from local storage or generate random username
-  const [username, setUsername] = useState(
-    get<string>("username") || `Guest ${randID}`
-  );
-  set<string>("username", username);
-
-  const changeUsername = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    set<string>("username", username);
-  };
-
+function Header({ username, setUsername, changeUsername }: any) {
   return (
     <>
       <div className="hero is-info is-bold">
