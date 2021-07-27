@@ -1,12 +1,11 @@
 function ChatMessage({ name, message, isOwnMessage }: any) {
   return (
     <p className={`py-3 ${isOwnMessage ? "has-text-right" : ""}`}>
-      <label className="px-2 label">{name}</label>
-      <span className="label icon-text">
+      <span className="label icon-text px-2">
         <span className="icon">
-          <i className="fas fa-arrow-right"></i>
+          <i className={`${isOwnMessage ? "fas" : "far"} fa-user-circle`}></i>
         </span>
-        <span>Home</span>
+        <span>{name}</span>
       </span>
       <span className={`tag is-large ${isOwnMessage ? "is-success" : ""}`}>
         {message}
