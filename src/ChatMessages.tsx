@@ -1,22 +1,22 @@
+import { useList } from "react-firebase-hooks/database";
+import firebase from "firebase/app";
+
 import ChatMessage from "./ChatMessage";
 
 function ChatMessages({ username }: any) {
-  const messages = [
-    { name: "dchen", message: "Hello World - from dchen" },
-    { name: "Thomas", message: "Hello World" },
-    { name: "dchen", message: "Hello World" },
-    { name: "Thomas", message: "Hello World" },
-  ];
+  const [snapshots, loading, error] = useList(firebase.database().ref("chats"));
 
   return (
     <div className="container">
-      {messages &&
-        messages.map((msg, i) => (
+      {error && <strong>Error: {error}</strong>}
+      {!loading &&
+        snapshots &&
+        snapshots.map((v) => (
           <ChatMessage
-            key={i}
-            name={msg.name}
-            message={msg.message}
-            isOwnMessage={msg.name === username}
+            key={v.key}
+            name={v.val().name}
+            message={v.val().message}
+            isOwnMessage={v.val().name === username}
           />
         ))}
     </div>
