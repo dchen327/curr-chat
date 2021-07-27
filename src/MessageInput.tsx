@@ -18,7 +18,7 @@ function MessageInput({ username, dummy }: any) {
   };
 
   return (
-    <div className="container">
+    <div className="container px-6 mx-6">
       <span ref={dummy}></span>
       <form onSubmit={sendMessage}>
         <div className="field has-addons">

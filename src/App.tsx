@@ -31,7 +31,10 @@ function App() {
             storeUsername={storeUsername}
           />
         </div>
-        <div className="hero-body">
+        <div
+          className="hero-body"
+          style={{ height: "100vh", overflow: "auto" }}
+        >
           <ChatMessages username={username} />
         </div>
         <div className="hero-foot">
