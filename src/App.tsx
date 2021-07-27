@@ -16,8 +16,8 @@ function App() {
   set<string>("username", username);
 
   const changeUsername = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
     set<string>("username", username);
+    console.log("username changed: ", username);
   };
 
   return (

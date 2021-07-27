@@ -1,4 +1,9 @@
 function Header({ username, setUsername, changeUsername }: any) {
+  const changeUsernameClicked = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    changeUsername();
+  };
+
   return (
     <>
       <div className="hero is-info is-bold">
@@ -9,7 +14,8 @@ function Header({ username, setUsername, changeUsername }: any) {
               <p className="subtitle">Real-time current events chat rooms</p>
             </div>
             <div className="column">
-              <form onSubmit={changeUsername}>
+              {/* <form onSubmit={changeUsername}> */}
+              <form onSubmit={changeUsernameClicked}>
                 <label className="content">Your Name:</label>
                 <div className="field has-addons">
                   <div className="control is-expanded">
