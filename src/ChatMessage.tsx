@@ -1,7 +1,7 @@
-function ChatMessage(props: any) {
+function ChatMessage({ message, isOwnMessage }: any) {
   return (
-    <p className="py-3 has-text-right">
-      <span className="tag is-medium">{props.message}</span>
+    <p className={`py-3 ${isOwnMessage ? "has-text-right" : ""}`}>
+      <span className="tag is-medium">{message}</span>
     </p>
   );
 }

@@ -31,7 +31,7 @@ function App() {
           />
         </div>
         <div className="hero-body">
-          <ChatMessages />
+          <ChatMessages username={username} />
         </div>
         <div className="hero-foot">
           <MessageInput username={username} />
