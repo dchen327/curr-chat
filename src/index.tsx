@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import firebase from "firebase/app";
 
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 // init firebase
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
