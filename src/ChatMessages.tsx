@@ -2,7 +2,7 @@ import ChatMessage from "./ChatMessage";
 
 function ChatMessages({ username }: any) {
   const messages = [
-    { name: "dchen", message: "Hello World" },
+    { name: "dchen", message: "Hello World - from dchen" },
     { name: "Thomas", message: "Hello World" },
     { name: "dchen", message: "Hello World" },
     { name: "Thomas", message: "Hello World" },

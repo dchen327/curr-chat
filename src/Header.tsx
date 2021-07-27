@@ -1,7 +1,19 @@
-function Header({ username, setUsername, changeUsername }: any) {
+import { useState } from "react";
+
+function Header({ username, setUsername, storeUsername }: any) {
+  const [nameChanged, setNameChanged] = useState(false);
+  const [newName, setNewName] = useState("");
+
   const changeUsernameClicked = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    changeUsername();
+    setUsername(newName);
+    storeUsername();
+    setNameChanged(false); // disable button
+  };
+
+  const usernameInputChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNameChanged(true); // enable button
+    setNewName(e.target.value);
   };
 
   return (
@@ -20,15 +32,15 @@ function Header({ username, setUsername, changeUsername }: any) {
                   <div className="control is-expanded">
                     <input
                       className="input"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      // value={username}
+                      onChange={usernameInputChanged}
                       placeholder={username}
                     />
                   </div>
                   <div className="control">
                     <button
                       type="submit"
-                      disabled={!username}
+                      disabled={!nameChanged}
                       className="button is-primary"
                     >
                       Change

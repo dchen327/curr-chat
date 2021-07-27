@@ -15,7 +15,7 @@ function App() {
   );
   set<string>("username", username);
 
-  const changeUsername = async (e: React.SyntheticEvent) => {
+  const storeUsername = (e: React.SyntheticEvent) => {
     set<string>("username", username);
     console.log("username changed: ", username);
   };
@@ -27,7 +27,7 @@ function App() {
           <Header
             username={username}
             setUsername={setUsername}
-            changeUsername={changeUsername}
+            storeUsername={storeUsername}
           />
         </div>
         <div className="hero-body">
