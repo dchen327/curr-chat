@@ -7,7 +7,7 @@ function ChatMessages({ username }: any) {
   const [snapshots, loading, error] = useList(firebase.database().ref("chats"));
 
   return (
-    <div className="container px-6">
+    <div className="container px-3">
       {error && <strong>Error: {error}</strong>}
       {!loading &&
         snapshots &&
