@@ -13,7 +13,7 @@ function ChatMessages({ username }: any) {
   }, [snapshots]);
 
   return (
-    <div className="container px-3">
+    <div className="container px-4">
       {error && <strong>Error: {error}</strong>}
       {!loading &&
         snapshots &&
