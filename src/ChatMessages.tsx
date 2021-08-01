@@ -2,9 +2,15 @@ import { useList } from "react-firebase-hooks/database";
 import firebase from "firebase/app";
 
 import ChatMessage from "./ChatMessage";
+import { useEffect, useRef } from "react";
 
-function ChatMessages({ username, dummy }: any) {
+function ChatMessages({ username }: any) {
   const [snapshots, loading, error] = useList(firebase.database().ref("chats"));
+  const dummy = useRef() as React.MutableRefObject<HTMLInputElement>;
+
+  useEffect(() => {
+    dummy.current.scrollIntoView({ behavior: "smooth" });
+  }, [snapshots]);
 
   return (
     <div className="container px-3">

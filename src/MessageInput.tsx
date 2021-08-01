@@ -2,7 +2,7 @@ import { useState } from "react";
 import firebase from "firebase/app";
 import "firebase/database";
 
-function MessageInput({ username, dummy }: any) {
+function MessageInput({ username }: any) {
   const [formValue, setFormValue] = useState("");
   const database = firebase.database();
 
@@ -14,7 +14,6 @@ function MessageInput({ username, dummy }: any) {
       message: formValue,
     });
     setFormValue("");
-    dummy.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
